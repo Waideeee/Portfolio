@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar (VS Code style) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
+
+/* Syntax highlight tokens */
+.tok-key { color: #9cdcfe; }
+.tok-str { color: #ce9178; }
+.tok-num { color: #b5cea8; }
+.tok-com { color: #6a9955; font-style: italic; }
+.tok-kw  { color: #c586c0; }
+.tok-fn  { color: #dcdcaa; }
+.tok-type{ color: #4ec9b0; }
+.tok-var { color: #9cdcfe; }
+.tok-punc{ color: #d4d4d4; }
+.tok-tag { color: #569cd6; }
+
+.line-numbers {
+  user-select: none;
+  color: #858585;
+  text-align: right;
+  padding-right: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tab-active {
+  background: #1e1e1e;
+  border-top: 1px solid #007acc;
+}
+
+/* AI portfolio overlay entrance */
+@keyframes aiOverlayIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.ai-overlay {
+  animation: aiOverlayIn 0.28s ease-out;
+}
+
+/* Floating AI button pulse glow */
+@keyframes aiPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(126, 245, 138, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(126, 245, 138, 0);
+  }
+}
+.ai-fab {
+  animation: aiPulse 2.4s ease-in-out infinite;
+}
+
+/* ============================================================
+   "the AI Portfolio" — full-screen alternate portfolio overlay
+   (converted from the standalone HTML design)
+   ============================================================ */
+.ai-portfolio {
+  --bg: #0a0d0a;
+  --fg: #ece9e1;
+  --muted: #7c8076;
+  --accent: #7ef58a;
+  --line: rgba(236, 233, 225, 0.14);
+  --card: rgba(236, 233, 225, 0.025);
+  --accent-soft: rgba(126, 245, 138, 0.12);
+
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.ai-portfolio.light {
+  --bg: #ece8df;
+  --fg: #0c0f0c;
+  --muted: #6c6f66;
+  --accent: #1f8a3b;
+  --line: rgba(12, 15, 12, 0.16);
+  --card: rgba(12, 15, 12, 0.03);
+  --accent-soft: rgba(31, 138, 59, 0.12);
+}
+.ai-portfolio a {
+  color: inherit;
+  text-decoration: none;
+}
+.ai-portfolio button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+.ai-portfolio ::selection {
+  background: var(--accent);
+  color: #0a0d0a;
+}
+.ai-portfolio .ser {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.ai-portfolio .chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: var(--fg);
+  border: 1px solid var(--line);
+  padding: 9px 15px;
+  border-radius: 30px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.ai-portfolio .chip:hover {
+  background: var(--accent);
+  color: #0a0d0a;
+  border-color: var(--accent);
+}
+.ai-portfolio .hsoc:hover {
+  color: var(--fg);
+}
+.ai-portfolio .soc:hover {
+  background: var(--accent);
+  color: #0a0d0a !important;
+  border-color: var(--accent) !important;
+}
+
+/* hide native cursor for the custom one (fine pointers only) */
+@media (pointer: fine) {
+  .ai-portfolio {
+    cursor: none;
+  }
+}
+@media (pointer: coarse) {
+  .ai-portfolio #cur-dot,
+  .ai-portfolio #cur-ring {
+    display: none !important;
+  }
+}
+
+/* close button */
+.ai-portfolio .ai-close {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 8px 13px;
+  border-radius: 30px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.ai-portfolio .ai-close:hover {
+  background: var(--accent);
+  color: #0a0d0a;
+  border-color: var(--accent);
+}
+
+@keyframes marq {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marqr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scrolld {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+}
