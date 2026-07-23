@@ -1,0 +1,20 @@
+{
+  "name": "Lia Samantha G. Pitero",
+  "role": "BS Computer Science Student",
+  "school": "Philippine Christian University",
+  "year": "2023 – Present",
+  "location": "Pandacan, Manila",
+  "email": "sammysammy0510@gmail.com",
+  "phone": "+63 956 659 7749",
+  "objective": "Motivated and eager Computer Science student seeking an On-the-Job Training opportunity in Full-Stack Development or Software Engineering. Experienced in building web-based applications using React.js, Node.js, JavaScript, PHP/Laravel, PostgreSQL, Python, and Firebase through academic and self-made projects. Passionate about building practical, user-focused applications that solve real problems — particularly for students and everyday users.",
+  "profile": "Highly motivated and detail-oriented college student with strong communication, organizational, and problem-solving skills. Demonstrates the ability to work effectively both independently and in team environments. Committed to delivering quality work, maintaining professionalism, and continuously developing personal and professional competencies.",
+  "bio": "My journey into coding was driven by a genuine desire to solve real-world problems. Seeing most CS/IT students spend countless hours struggling without effective digital tools pushed me to act. I am determined to become a successful programmer — one who can develop meaningful solutions to the technology challenges we face today.",
+  "softSkills": [
+    "Strong communication skills",
+    "Team collaboration",
+    "Problem-solving",
+    "Adaptability and fast learner",
+    "Ability to manage multiple tasks"
+  ],
+  "languages": ["English", "Filipino"]
+}
